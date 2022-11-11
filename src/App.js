@@ -69,7 +69,7 @@ function App() {
   };
   return (
     <div className="App">
-      <div>{time}</div>
+      {/* <div>{time}</div> */}
       <h1>TO DO LIST</h1>
       <label>
         <Input addText={addText} />
