@@ -52,9 +52,13 @@ function App() {
     setList((prev) => {
       const newList = prev.map((val, idx1) => {
         if (idx === idx1) {
-          let temp = val.text;
-          console.log({ text: temp, completed: true });
-          return { text: temp, completed: true };
+          if (val.completed === false) {
+            let temp = val.text;
+            return { text: temp, completed: true };
+          } else {
+            let temp = val.text;
+            return { text: temp, completed: false };
+          }
         } else {
           console.log(val);
           return val;
