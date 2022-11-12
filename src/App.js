@@ -3,9 +3,14 @@ import React, { useEffect, useState } from "react";
 import Items from "./Component/Items";
 import Input from "./Component/Input";
 function App() {
+  const [time1, setTime1] = useState(new Date().toLocaleTimeString());
+  const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [date1, setDate1] = useState("");
   const [text, setText] = useState("");
   const addText = (data) => {
+    setTime1(new Date().toLocaleTimeString());
+    setDate(new Date().toLocaleDateString());
     // console.log(data);
     setText(data.target.value);
   };
@@ -15,9 +20,16 @@ function App() {
 
   const addtoList = () => {
     if (text) {
-      setList((prev) => prev.concat({ text, completed: false }));
+      setList((prev) =>
+        prev.concat({ text, completed: false, date, time1: time1 })
+      );
       setText("");
       document.getElementById("myInput").value = "";
+    }
+  };
+  const keyDown = (val) => {
+    if (val.keyCode === 13) {
+      addtoList();
     }
   };
   const remove = (n) => {
@@ -43,6 +55,7 @@ function App() {
   // console.log("App rendered");
   useEffect(() => {
     setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
+    setInterval(() => setDate1(new Date().toLocaleDateString()), 1000);
   }, []);
   // const [dateState, setDateState] = useState(new Date());
   // useEffect(() => {
@@ -54,25 +67,39 @@ function App() {
         if (idx === idx1) {
           if (val.completed === false) {
             let temp = val.text;
-            return { text: temp, completed: true };
+            return {
+              text: temp,
+              completed: true,
+              date: prev.date,
+              time1: val.time1,
+            };
           } else {
             let temp = val.text;
-            return { text: temp, completed: false };
+            return {
+              text: temp,
+              completed: false,
+              date: prev.date,
+              time1: val.time1,
+            };
           }
         } else {
-          console.log(val);
+          // console.log(val);
           return val;
         }
       });
       return newList;
     });
   };
+  // const edit = (idx)=>{
+
+  // }
   return (
     <div className="App">
+      <div>{date1}</div>
       <div>{time}</div>
       <h1>TO DO LIST</h1>
       <label>
-        <Input addText={addText} />
+        <Input addText={addText} keyDown={keyDown} />
         <button type="button" onClick={addtoList}>
           add
         </button>

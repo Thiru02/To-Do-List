@@ -1,14 +1,19 @@
 .App {
   text-align: center;
 }
-.App button {
-  justify-content: right;
-  justify-items: right;
-}
 
 .App button {
-  text-align: left;
   justify-items: center;
+}
+.App .Items {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.App .Items .Items1 {
+  background-color: brown;
+  min-width: 280px;
+  margin-bottom: 10px;
 }
 .App .Items .complete {
   /* background-color: green; */

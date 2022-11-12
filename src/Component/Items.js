@@ -6,7 +6,10 @@ const Items = (props) => {
   //   console.log(props);
   // console.log(complete);
   return (
-    <div className={`${props.a.completed ? "complete" : ""}`} value={value}>
+    <div
+      className={`Items1 ${props.a.completed ? "complete" : ""}`}
+      value={value}
+    >
       {props.a.text}
       <button
         onClick={() => {
@@ -23,6 +26,8 @@ const Items = (props) => {
       >
         ✓
       </button>
+      <br />
+      {props.a.date} {props.a.time1}
       {/* <button onClick={()=>props.edit(props.idx)}>Edit</button> */}
     </div>
   );

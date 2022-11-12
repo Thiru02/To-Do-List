@@ -1,15 +1,16 @@
 import React from "react";
 
-const Input = ({ addText }) => {
+const Input = (props) => {
   //   console.log("input rendered");
   return (
     <div>
       {" "}
       <input
         type="text"
-        onChange={addText}
+        onChange={props.addText}
         placeholder="Enter text"
         id="myInput"
+        onKeyDown={props.keyDown}
       ></input>
     </div>
   );
