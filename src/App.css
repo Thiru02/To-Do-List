@@ -11,12 +11,12 @@
   flex-direction: column;
 }
 .App .Items .Items1 {
-  background-color: brown;
+  background-color: green;
   min-width: 280px;
   margin-bottom: 10px;
 }
 .App .Items .complete {
-  /* background-color: green; */
+  background-color: grey;
   text-decoration: line-through;
   /* align-items: center;
   max-width: 180px; */

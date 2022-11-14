@@ -70,7 +70,7 @@ function App() {
             return {
               text: temp,
               completed: true,
-              date: prev.date,
+              date: val.date,
               time1: val.time1,
             };
           } else {
@@ -78,7 +78,7 @@ function App() {
             return {
               text: temp,
               completed: false,
-              date: prev.date,
+              date: val.date,
               time1: val.time1,
             };
           }
