@@ -16,7 +16,7 @@
   margin-bottom: 10px;
 }
 .App .Items .complete {
-  /* background-color: green; */
+  background-color: green;
   text-decoration: line-through;
   /* align-items: center;
   max-width: 180px; */
